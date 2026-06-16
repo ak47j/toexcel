@@ -102,8 +102,10 @@ app.get("/health", (req, res) => {
   res.json({
     status: "ok"
   });
-});
+}); 
 
-app.listen(APP_PORT, () => {
-  console.log("running on "+APP_PORT);
-});
+if (require.main === module) {
+  app.listen(APP_PORT, () => console.log("running on " + APP_PORT));
+}
+
+module.exports = app;
